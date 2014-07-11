@@ -41,7 +41,7 @@ class jenkins_base (
   $repo               = undef,
   $service_enable     = undef,
   $service_ensure     = undef,
-  $config_hash        = undef,
+  $config_hash        = $jenkins_base::params::config_hash,
   $plugin_hash        = undef,
   $configure_firewall = $jenkins_base::params::configure_firewall,
   $install_java       = undef,

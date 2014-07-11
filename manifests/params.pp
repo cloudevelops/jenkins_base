@@ -1,11 +1,10 @@
 class jenkins_base::params {
 
-#  if $firewall_base::firewall_enabled {
-#    $configure_firewall = true
-#  } else {
-#    $configure_firewall = false
-#  }
-
   $configure_firewall = false
+  $config_hash = {
+    'HTTP_HOST' => { 'value' => '127.0.0.1' }
+  }
+
+
 
 }
