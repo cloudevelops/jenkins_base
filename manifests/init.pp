@@ -35,7 +35,35 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class jenkins_base {
+class jenkins_base (
+  $version            = undef,
+  $lts                = undef,
+  $repo               = undef,
+  $service_enable     = undef,
+  $service_ensure     = undef,
+  $config_hash        = undef,
+  $plugin_hash        = undef,
+  $configure_firewall = undef,
+  $install_java       = undef,
+  $proxy_host         = undef,
+  $proxy_port         = undef,
+  $cli                = undef,
+) inherits jenkins_base::params {
+
+  class {'jenkins':
+    version            => $version,
+    lts                => $lts,
+    repo               => $repo,
+    service_enable     => $service_enable,
+    service_ensure     => $service_ensure,
+    config_hash        => $config_hash,
+    plugin_hash        => $plugin_hash,
+    configure_firewall => $configure_firewall,
+    install_java       => $install_java,
+    proxy_host         => $proxy_host,
+    proxy_port         => $proxy_port,
+    cli                => $cli,
+  }
 
 
 }
