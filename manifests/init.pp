@@ -48,6 +48,9 @@ class jenkins_base (
   $proxy_host         = undef,
   $proxy_port         = undef,
   $cli                = undef,
+  $base_nginx         = $jenkins_base::params::base_nginx,
+  $base_jenkins_user  = undef,
+  $base_jenkins_host  = $jenkins_base::params::base_jenkins_host,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -65,5 +68,8 @@ class jenkins_base (
     cli                => $cli,
   }
 
+  if $base_nginx {
+    include jenkins_base::nginx
+  }
 
 }
