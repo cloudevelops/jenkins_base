@@ -43,7 +43,7 @@ class jenkins_base (
   $service_ensure     = undef,
   $config_hash        = undef,
   $plugin_hash        = undef,
-  $configure_firewall = undef,
+  $configure_firewall = $jenkins_base::params::configure_firewall,
   $install_java       = undef,
   $proxy_host         = undef,
   $proxy_port         = undef,
