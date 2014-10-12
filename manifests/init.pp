@@ -72,4 +72,8 @@ class jenkins_base (
     include jenkins_base::nginx
   }
 
+  jenkins::plugin {
+    'build-flow-plugin': ;
+  }
+
 }
