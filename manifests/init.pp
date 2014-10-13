@@ -74,6 +74,9 @@ class jenkins_base (
 
   jenkins::plugin {
     'build-flow-plugin': ;
+    'promoted-builds': ;
+    'publish-over-ssh': ;
+    'copyartifact': ;
   }
 
 }
