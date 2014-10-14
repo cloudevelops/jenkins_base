@@ -55,8 +55,8 @@ class jenkins_base (
   $base_mcollective_username    = $jenkins_base::params::base_mcollective_username,
   $base_mcollective_group       = $jenkins_base::params::base_mcollective_group,
   $base_mcollective_homedir     = $jenkins_base::params::base_mcollective_homedir,
-  $base_mcollective_certificate = $jenkins_base::params::base_mcollective_certificate,
-  $base_mcollective_private_key = $jenkins_base::params::base_mcollective_private_key,
+  $base_mcollective_certificate = undef,
+  $base_mcollective_private_key = undef,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
