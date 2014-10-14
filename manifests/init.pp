@@ -36,21 +36,27 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class jenkins_base (
-  $version            = undef,
-  $lts                = undef,
-  $repo               = undef,
-  $service_enable     = undef,
-  $service_ensure     = undef,
-  $config_hash        = $jenkins_base::params::config_hash,
-  $plugin_hash        = undef,
-  $configure_firewall = $jenkins_base::params::configure_firewall,
-  $install_java       = undef,
-  $proxy_host         = undef,
-  $proxy_port         = undef,
-  $cli                = undef,
-  $base_nginx         = $jenkins_base::params::base_nginx,
-  $base_jenkins_user  = undef,
-  $base_jenkins_host  = $jenkins_base::params::base_jenkins_host,
+  $version                      = undef,
+  $lts                          = undef,
+  $repo                         = undef,
+  $service_enable               = undef,
+  $service_ensure               = undef,
+  $config_hash                  = $jenkins_base::params::config_hash,
+  $plugin_hash                  = undef,
+  $configure_firewall           = $jenkins_base::params::configure_firewall,
+  $install_java                 = undef,
+  $proxy_host                   = undef,
+  $proxy_port                   = undef,
+  $cli                          = undef,
+  $base_nginx                   = $jenkins_base::params::base_nginx,
+  $base_jenkins_user            = undef,
+  $base_jenkins_host            = $jenkins_base::params::base_jenkins_host,
+  $base_mcollective_client      = $jenkins_base::params::base_mcollective_client,
+  $base_mcollective_username    = $jenkins_base::params::base_mcollective_username,
+  $base_mcollective_group       = $jenkins_base::params::base_mcollective_group,
+  $base_mcollective_homedir     = $jenkins_base::params::base_mcollective_homedir,
+  $base_mcollective_certificate = $jenkins_base::params::base_mcollective_certificate,
+  $base_mcollective_private_key = $jenkins_base::params::base_mcollective_private_key,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -77,6 +83,10 @@ class jenkins_base (
     'promoted-builds': ;
     'publish-over-ssh': ;
     'copyartifact': ;
+  }
+
+  if $base_mcollective_client {
+    include jenkins_base::mcollective_client
   }
 
 }
