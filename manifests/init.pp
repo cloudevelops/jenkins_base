@@ -83,6 +83,8 @@ class jenkins_base (
     'promoted-builds': ;
     'publish-over-ssh': ;
     'copyartifact': ;
+    'email-ext': ;
+    'email-ext-recipients-column': ;
   }
 
   if $base_mcollective_client {
