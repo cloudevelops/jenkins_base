@@ -10,5 +10,6 @@ class jenkins_base::params {
   $base_mcollective_username = 'jenkins'
   $base_mcollective_group = 'jenkins'
   $base_mcollective_homedir = '/var/lib/jenkins'
+  $base_redis_cli = false
 
 }
