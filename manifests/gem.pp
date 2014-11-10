@@ -20,9 +20,4 @@ class jenkins_base::gem {
     provider => 'gem',
   }
 
-  package { 'yaml':
-    ensure   => 'installed',
-    provider => 'gem',
-  }
-
 }
