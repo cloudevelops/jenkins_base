@@ -5,7 +5,22 @@ class jenkins_base::gem {
     provider => 'gem',
   }
 
+  package { 'getopt':
+    ensure   => 'installed',
+    provider => 'gem',
+  }
+
+  package { 'json':
+    ensure   => 'installed',
+    provider => 'gem',
+  }
+
   package { 'redis':
+    ensure   => 'installed',
+    provider => 'gem',
+  }
+
+  package { 'yaml':
     ensure   => 'installed',
     provider => 'gem',
   }
