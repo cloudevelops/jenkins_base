@@ -58,7 +58,7 @@ class jenkins_base (
   $base_mcollective_certificate = undef,
   $base_mcollective_private_key = undef,
   $base_redis_cli = $jenkins_base::params::base_redis_cli,
-  $base_fpm			= $jenkins_base::params::base_fpm,
+  $base_gem			= $jenkins_base::params::base_gem,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -97,8 +97,8 @@ class jenkins_base (
     include jenkins_base::redis_cli
   }
 
-  if $base_fpm {
-    include jenkins_base::fpm
+  if $base_gem {
+    include jenkins_base::gem
   }
 
 }
