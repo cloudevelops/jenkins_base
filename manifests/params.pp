@@ -12,5 +12,6 @@ class jenkins_base::params {
   $base_mcollective_homedir = '/var/lib/jenkins'
   $base_redis_cli = false
   $base_gem = true
+  $base_sudo = true
 
 }

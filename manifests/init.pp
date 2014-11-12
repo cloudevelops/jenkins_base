@@ -59,6 +59,7 @@ class jenkins_base (
   $base_mcollective_private_key = undef,
   $base_redis_cli = $jenkins_base::params::base_redis_cli,
   $base_gem			= $jenkins_base::params::base_gem,
+  $base_sudo			= $jenkins_base::params::base_sudo,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -99,6 +100,10 @@ class jenkins_base (
 
   if $base_gem {
     include jenkins_base::gem
+  }
+
+  if $base_sudo {
+    include jenkins_base::sudo
   }
 
 }
