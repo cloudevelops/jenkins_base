@@ -58,8 +58,9 @@ class jenkins_base (
   $base_mcollective_certificate = undef,
   $base_mcollective_private_key = undef,
   $base_redis_cli = $jenkins_base::params::base_redis_cli,
-  $base_gem			= $jenkins_base::params::base_gem,
-  $base_sudo			= $jenkins_base::params::base_sudo,
+  $base_gem                     = $jenkins_base::params::base_gem,
+  $base_sudo                    = $jenkins_base::params::base_sudo,
+  $base_monitoring_sensu        = $jenkins_base::params::base_monitoring_sensu,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -105,5 +106,7 @@ class jenkins_base (
   if $base_sudo {
     include jenkins_base::sudo
   }
+
+  class {'jenkins_base::monitoring': }
 
 }

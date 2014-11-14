@@ -13,5 +13,6 @@ class jenkins_base::params {
   $base_redis_cli = false
   $base_gem = true
   $base_sudo = true
+  $base_monitoring_sensu = hiera('sensu_base::base_enabled',false)
 
 }
