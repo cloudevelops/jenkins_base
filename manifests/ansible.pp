@@ -1,4 +1,4 @@
-class jenkins_base::sudo {
+class jenkins_base::ansible {
 
   sudo::conf {
     'jenkins-ansible':

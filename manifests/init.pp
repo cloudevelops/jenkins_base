@@ -57,10 +57,12 @@ class jenkins_base (
   $base_mcollective_homedir     = $jenkins_base::params::base_mcollective_homedir,
   $base_mcollective_certificate = undef,
   $base_mcollective_private_key = undef,
-  $base_redis_cli = $jenkins_base::params::base_redis_cli,
+  $base_redis_cli               = $jenkins_base::params::base_redis_cli,
   $base_gem                     = $jenkins_base::params::base_gem,
-  $base_sudo                    = $jenkins_base::params::base_sudo,
   $base_monitoring_sensu        = $jenkins_base::params::base_monitoring_sensu,
+  $base_ansible                 = $jenkins_base::params::base_ansible,
+  $base_deploy                  = $jenkins_base::params::base_deploy,
+  $base_php                     = $jenkins_base::params::base_php,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -103,10 +105,18 @@ class jenkins_base (
     include jenkins_base::gem
   }
 
-  if $base_sudo {
-    include jenkins_base::sudo
+  class {'jenkins_base::monitoring': }
+
+  if $base_ansible {
+    include jenkins_base::ansible
   }
 
-  class {'jenkins_base::monitoring': }
+  if $base_deploy {
+    include jenkins_base::deploy
+  }
+
+  if $base_php {
+    include jenkins_base::php
+  }
 
 }

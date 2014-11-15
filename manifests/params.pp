@@ -11,8 +11,9 @@ class jenkins_base::params {
   $base_mcollective_group = 'jenkins'
   $base_mcollective_homedir = '/var/lib/jenkins'
   $base_redis_cli = false
-  $base_gem = true
-  $base_sudo = true
+  $base_gem = false
   $base_monitoring_sensu = hiera('sensu_base::base_enabled',false)
-
+  $base_ansible = false
+  $base_deploy = false
+  $base_php = false
 }
