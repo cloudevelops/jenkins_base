@@ -57,7 +57,9 @@ class jenkins_base (
   $base_mcollective_homedir     = $jenkins_base::params::base_mcollective_homedir,
   $base_mcollective_certificate = undef,
   $base_mcollective_private_key = undef,
-  $base_redis_cli = $jenkins_base::params::base_redis_cli,
+  $base_redis_cli               = $jenkins_base::params::base_redis_cli,
+  $base_ansible                 = $jenkins_base::params::base_ansible,
+  $base_deploy                  = $jenkins_base::params::base_deploy,
 ) inherits jenkins_base::params {
 
   class {'jenkins':
@@ -94,6 +96,14 @@ class jenkins_base (
 
   if $base_redis_cli {
     include jenkins_base::redis_cli
+  }
+
+  if $base_ansible {
+    include jenkins_base::ansible
+  }
+
+  if $base_deploy {
+    include jenkins_base::deploy
   }
 
 }
