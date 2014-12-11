@@ -60,6 +60,7 @@ class jenkins_base (
   $base_redis_cli               = $jenkins_base::params::base_redis_cli,
   $base_gem                     = $jenkins_base::params::base_gem,
   $base_monitoring_sensu        = $jenkins_base::params::base_monitoring_sensu,
+  $base_monitoring_collectd     = $jenkins_base::params::base_monitoring_collectd,
   $base_ansible                 = $jenkins_base::params::base_ansible,
   $base_deploy                  = $jenkins_base::params::base_deploy,
   $base_php                     = $jenkins_base::params::base_php,

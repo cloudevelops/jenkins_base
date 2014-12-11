@@ -13,6 +13,7 @@ class jenkins_base::params {
   $base_redis_cli = false
   $base_gem = false
   $base_monitoring_sensu = hiera('sensu_base::base_enabled',false)
+  $base_monitoring_collectd = hiera('collectd_base::base_enabled',false)
   $base_ansible = false
   $base_deploy = false
   $base_php = false

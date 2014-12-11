@@ -4,5 +4,9 @@ class jenkins_base::monitoring {
     include jenkins_base::monitoring::sensu
   }
 
+  if $jenkins_base::base_monitoring_collectd {
+    include jenkins_base::monitoring::collectd
+  }
+
 }
 
